@@ -1,0 +1,162 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #212529;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER STYLES */
+        header {
+            background-color: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0d6efd;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .search-input {
+            padding: 0.5rem;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        .search-button {
+            padding: 0.5rem 1rem;
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-button:hover {
+            background-color: #0b5ed7;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* FOOTER STYLES */
+        footer {
+            background-color: #ffffff;
+            padding: 2rem;
+            margin-top: auto;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            color: #6c757d;
+        }
+
+        .footer-info {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .footer-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #212529;
+        }
+
+        .footer-location {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
+            opacity: 0.8;
+        }
+        /* RESPONSIVE DESIGN */
+       
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">ANASAYFA</a></li>
+                <li><a href="#">HAKKIMIZDA</a></li>
+                <li><a href="/Blog">BLOGLAR</a></li>
+                <li><a href="#">İLETİŞİM</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Arama...">
+                <button class="search-button">Ara</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- RenderBody() içeriği buraya gelecek -->
+        @RenderBody()
+    </main>
+
+    @await Html.PartialAsync("FooterPartial")
+</body>
+</html>
+

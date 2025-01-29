@@ -3,11 +3,13 @@ using Entitiy.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
+    //bu dosyaya ihtiyaç yok çünkü generic kullandık.
     public class CommentRepository : IGenericDal<Comment>
     {
         public void Delete(Comment t)
@@ -21,6 +23,11 @@ namespace DataAccess.Repository
         }
 
         public List<Comment> GetListAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Comment> GetListAll(Expression<Func<Comment, bool>> filter)
         {
             throw new NotImplementedException();
         }
