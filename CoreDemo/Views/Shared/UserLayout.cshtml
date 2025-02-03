@@ -1,13 +1,9 @@
-﻿@{
-    Layout = null;
-}
+﻿
 
 <!DOCTYPE html>
-
 <html>
 <head>
-  
-     <style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -58,6 +54,13 @@
             color: #0d6efd;
         }
 
+        /* HEADER RIGHT SECTION */
+        .header-right-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
         .search-box {
             display: flex;
             gap: 0.5rem;
@@ -82,6 +85,42 @@
 
         .search-button:hover {
             background-color: #0b5ed7;
+        }
+
+        /* AUTH BUTTONS */
+        .auth-buttons {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .auth-button {
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .login-button {
+            background-color: transparent;
+            color: #495057;
+            border-color: #dee2e6;
+        }
+
+        .login-button:hover {
+            background-color: #f8f9fa;
+            border-color: #ced4da;
+        }
+
+        .register-button {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .register-button:hover {
+            background-color: #0b5ed7;
+            transform: translateY(-1px);
         }
 
         /* MAIN CONTENT */
@@ -129,9 +168,14 @@
             margin-top: 1.5rem;
             opacity: 0.8;
         }
-        /* RESPONSIVE DESIGN */
-       
-        
+
+        .main-content-w3layouts-agileits {
+            padding: 5em 0;
+        }
+
+
+      
+        }
     </style>
 </head>
 
@@ -144,19 +188,25 @@
                 <li><a href="/Blog">BLOGLAR</a></li>
                 <li><a href="#">İLETİŞİM</a></li>
             </ul>
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="Arama...">
-                <button class="search-button">Ara</button>
+            
+            <div class="header-right-section">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Arama...">
+                    <button class="search-button">Ara</button>
+                </div>
+                
+                <div class="auth-buttons">
+                    <a href="/Login/Index" class="auth-button login-button">Giriş Yap</a>
+                    <a href="/Register/Index" class="auth-button register-button">Kayıt Ol</a>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <!-- RenderBody() içeriği buraya gelecek -->
         @RenderBody()
     </main>
 
     @await Html.PartialAsync("FooterPartial")
 </body>
 </html>
-

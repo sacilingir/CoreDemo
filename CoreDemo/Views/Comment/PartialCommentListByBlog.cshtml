@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Entitiy.Concrete.Comment>
+<!-- Yorum Bölümü -->
+<section class="comment-section">
+    <h2>Yorumlar (45)</h2>
+
+    <!-- Mevcut Yorumlar -->
+    <div class="comments-list">
+        
+        @foreach (var item in Model)
+        {
+            
+        
+        <div class="comment">
+            <div class="comment-header">
+                <div class="user-avatar"></div>
+                <div>
+                    <h3>@item.CommentUserName</h3>
+                    <small>@item.CommentDate</small>
+                </div>
+            </div>
+            <p>@item.CommentContent</p>
+        </div>
+        }
+        
+    </div>
+
