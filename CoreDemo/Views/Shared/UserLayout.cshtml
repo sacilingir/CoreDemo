@@ -1,212 +1,116 @@
 ﻿
-
 <!DOCTYPE html>
-<html>
+<html lang="zxx">
+
 <head>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
+    <title>Weblog a Blogging Category Bootstrap responsive WebTemplate | Blog3 :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Weblog a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
-        body {
-            background-color: #f8f9fa;
-            color: #212529;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-        /* HEADER STYLES */
-        header {
-            background-color: #ffffff;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        function hideURLbar() {
+            window.scrollTo(0, 1);
         }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #495057;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #0d6efd;
-        }
-
-        /* HEADER RIGHT SECTION */
-        .header-right-section {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .search-box {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .search-input {
-            padding: 0.5rem;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            width: 200px;
-        }
-
-        .search-button {
-            padding: 0.5rem 1rem;
-            background-color: #0d6efd;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .search-button:hover {
-            background-color: #0b5ed7;
-        }
-
-        /* AUTH BUTTONS */
-        .auth-buttons {
-            display: flex;
-            gap: 0.75rem;
-        }
-
-        .auth-button {
-            padding: 0.5rem 1.25rem;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border: 2px solid transparent;
-        }
-
-        .login-button {
-            background-color: transparent;
-            color: #495057;
-            border-color: #dee2e6;
-        }
-
-        .login-button:hover {
-            background-color: #f8f9fa;
-            border-color: #ced4da;
-        }
-
-        .register-button {
-            background-color: #0d6efd;
-            color: white;
-        }
-
-        .register-button:hover {
-            background-color: #0b5ed7;
-            transform: translateY(-1px);
-        }
-
-        /* MAIN CONTENT */
-        main {
-            flex: 1;
-            max-width: 1200px;
-            width: 100%;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-
-        /* FOOTER STYLES */
-        footer {
-            background-color: #ffffff;
-            padding: 2rem;
-            margin-top: auto;
-            border-top: 1px solid #dee2e6;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            color: #6c757d;
-        }
-
-        .footer-info {
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .footer-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #212529;
-        }
-
-        .footer-location {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .footer-copyright {
-            font-size: 0.85rem;
-            margin-top: 1.5rem;
-            opacity: 0.8;
-        }
-
-        .main-content-w3layouts-agileits {
-            padding: 5em 0;
-        }
-
-
-      
-        }
-    </style>
+    </script>
+    <link href="~/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/web/css/single.css">
+    <link href="~/web/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/web/css/fontawesome-all.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+          rel="stylesheet">
 </head>
 
 <body>
+    <!--Header-->
+
     <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#">ANASAYFA</a></li>
-                <li><a href="#">HAKKIMIZDA</a></li>
-                <li><a href="/Blog">BLOGLAR</a></li>
-                <li><a href="#">İLETİŞİM</a></li>
-            </ul>
-            
-            <div class="header-right-section">
-                <div class="search-box">
-                    <input type="text" class="search-input" placeholder="Arama...">
-                    <button class="search-button">Ara</button>
+        <div class="top-bar_sub_w3layouts container-fluid">
+            <div class="row">
+                <div class="col-md-4 logo text-left">
+                    <a class="navbar-brand" href="index.html">
+                        <i class="fab fa-linode"></i> Weblog
+                    </a>
                 </div>
-                
-                <div class="auth-buttons">
-                    <a href="/Login/Index" class="auth-button login-button">Giriş Yap</a>
-                    <a href="/Register/Index" class="auth-button register-button">Kayıt Ol</a>
+                @await Html.PartialAsync("LoginRegisterSection")
+                <div class="col-md-4 log-icons text-right">
+
+                @await Html.PartialAsync("SocialMediaSection")
                 </div>
             </div>
-        </nav>
+        </div>
+
+        <div class="header_top" id="home">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler navbar-toggler-right mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                @await Html.PartialAsync("MainPageSection")                
+            </nav>
+
+        </div>
     </header>
-
-    <main>
-        @RenderBody()
-    </main>
-
+    <!--//header-->
+  
+    <!--/main-->
+    @RenderBody()
+    <!--//main-->
+    <!--footer-->
     @await Html.PartialAsync("FooterPartial")
+    <!---->
+    <!-- js -->
+    <script src="~/web/css/js/jquery-2.2.3.min.js"></script>
+    <!-- //js -->
+    <!--/ start-smoth-scrolling -->
+    <script src="~/web/css/js/move-top.js"></script>
+    <script src="~/web/css/js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+    </script>
+    <!--// end-smoth-scrolling -->
+
+    <script>
+        $(document).ready(function () {
+            /*
+                                    var defaults = {
+                                        containerID: 'toTop', // fading element id
+                                        containerHoverID: 'toTopHover', // fading element hover id
+                                        scrollSpeed: 1200,
+                                        easingType: 'linear'
+                                    };
+                                    */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <a href="#home" class="scroll" id="toTop" style="display: block;">
+        <span id="toTopHover" style="opacity: 1;"> </span>
+    </a>
+
+    <!-- //Custom-JavaScript-File-Links -->
+    <script src="~/web/css/js/bootstrap.js"></script>
+
+
 </body>
+
 </html>
+
+
+
+

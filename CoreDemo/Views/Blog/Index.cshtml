@@ -4,84 +4,51 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/UserLayout.cshtml";
 }
-<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+<section class="main-content-w3layouts-agileits">
+	<div class="container">
+		<h3 class="tittle">Blog Posts</h3>
+		<div class="inner-sec">
+			<!--left-->
+			<div class="left-blog-info-w3layouts-agileits text-left">
+				<div class="row">
+					@foreach (var item in Model)
+					{	
+					<div class="col-lg-4 card">
+						<a href="single.html">
+							<img src="@item.BlogThumbnailImage" class="card-img-top img-fluid" alt="">
+						</a>
+						<div class="card-body">
+							<ul class="blog-icons my-4">
+								<li>
+									<a href="#">
+										<i class="far fa-calendar-alt"></i> @item.BlogCreateDate
+									</a>
+								</li>
+								<li class="mx-2">
+									<a href="#">
+										<i class="far fa-comment"></i> 21
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fas fa-eye"></i> @item.Category.CategoryName
+									</a>
+								</li>
 
-<div class="blog-container">
-    @foreach (var item in Model)
-    {
-
-
-        <!-- Blog Kartları -->
-        <div class="blog-card">
-            <img src="https://picsum.photos/400/300" alt="Blog Resmi" class="blog-thumbnail">
-            <div class="blog-content">
-                <span class="blog-date">@item.Category.CategoryName</span>
-                <span class="blog-date">@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</span>
-                <h2 class="blog-title">@item.BlogTitle</h2>
-                <p class="blog-excerpt">@item.BlogContent.Substring(0,item.BlogContent.Substring(0,125).LastIndexOf(" "))...</p>
-                <a href="/Blog/BlogReadAll/@item.BlogId/" class="btn btn-primary read-m">Devamını Oku</a>
-            </div>
-        </div>
-
-    }
-</div>
-
-<style>
-    /* BLOG STYLES */
-    .blog-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-        padding: 0 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .blog-card {
-        background: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        overflow: hidden;
-        transition: transform 0.3s ease;
-    }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-        }
-
-    .blog-thumbnail {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-bottom: 1px solid #eee;
-    }
-
-    .blog-content {
-        padding: 1.5rem;
-    }
-
-    .blog-date {
-        display: block;
-        font-size: 0.85rem;
-        color: #6c757d;
-        margin-bottom: 0.5rem;
-    }
-
-    .blog-title {
-        font-size: 1.25rem;
-        color: #212529;
-        margin-bottom: 1rem;
-        line-height: 1.4;
-    }
-
-    .blog-excerpt {
-        font-size: 0.95rem;
-        color: #495057;
-        line-height: 1.6;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-</style>
+							</ul>
+							<h5 class="card-title">
+								<a href="single.html">@item.BlogTitle</a>
+							</h5>
+							<p class="card-text mb-3">@item.BlogContent </p>
+							<a href="single.html" class="btn btn-primary read-m">Daha Fazla Oku</a>
+						</div>
+					</div>
+					}
+				
+					
+				</div>
+				<!--//left-->
+			</div>
+		</div>
+	</div>
+</section>
