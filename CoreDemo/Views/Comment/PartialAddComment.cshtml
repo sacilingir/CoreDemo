@@ -1,14 +1,11 @@
-﻿    <!-- Yorum Formu -->
-<form class="comment-form">
-    <div class="form-group">
-        <input type="text" placeholder="Adınız" required>
-    </div>
-    <div class="form-group">
-        <input type="email" placeholder="E-posta Adresiniz" required>
-    </div>
-    <div class="form-group">
-        <textarea rows="5" placeholder="Yorumunuz..." required></textarea>
-    </div>
-    <button type="submit">Yorum Gönder</button>
-</form>
-</section>
+﻿<div class="comment-top">
+						<h4>Leave a Comment</h4>
+						<div class="comment-bottom">
+							<form action="/Comment/PartialAddComment/" method="post">
+								<input class="form-control" type="text" name="CommentUserName" placeholder="İsim" required="">
+								<input class="form-control" type="text" name="CommentTitle" placeholder="Başlık" required="">
+								<textarea class="form-control" name="CommentContent" placeholder="Mesajınız..." required=""></textarea>
+								<button type="submit" class="btn btn-primary submit">Submit</button>
+							</form>
+						</div>
+					</div>

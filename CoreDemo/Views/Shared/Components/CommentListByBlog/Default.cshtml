@@ -1,42 +1,22 @@
 ﻿@model IEnumerable<Entitiy.Concrete.Comment>
-<!-- Yorum Bölümü -->
-<section class="comment-section">
-    <h2>Yorumlar  </h2>
 
-    <!-- Mevcut Yorumlar -->
-    <div class="comments-list">
-        @if (Model.Count() == 0)
-        {
-            <div class="comments-list">
-                <!-- Yorum yoksa bu blok gözükecek -->
-                <div class="no-comments">
-                    <div class="no-comments-icon">💬</div>
-                    <div class="no-comments-text">
-                        Bu gönderiye henüz yorum yapılmamış.
-                    </div>
-                    <div class="no-comments-cta">
-                        İlk yorumu sen yap!
-                    </div>
-                </div>
-            </div>
-        }
-        else
-        {
-            @foreach (var item in Model)
-            {
+<div class="comment-top">
+	<h4>Yorumlar</h4>
+	
+	@foreach (var item in Model)
+		{
+	<div class="media">
+		<img src="~/web/images/t1.jpg" alt="" class="img-fluid" />
+		<div class="media-body">
+			<h5 class="mt-0">@item.CommentUserName</h5>
+				<p>
+					@item.CommentTitle
+				</p>
+			<p>
+				@item.CommentContent
+			</p>
 
-
-                <div class="comment">
-                    <div class="comment-header">
-                        <div class="user-avatar"></div>
-                        <div>
-                            <h3>@item.CommentUserName</h3>
-                            <small>@item.CommentDate</small>
-                        </div>
-                    </div>
-                    <p>@item.CommentContent</p>
-                </div>
-            }
-        }
-    </div>
-
+		</div>
+	</div>
+	}
+</div>

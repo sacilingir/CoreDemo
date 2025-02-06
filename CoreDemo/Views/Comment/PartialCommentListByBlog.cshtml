@@ -1,26 +1,28 @@
-﻿@model IEnumerable<Entitiy.Concrete.Comment>
-<!-- Yorum Bölümü -->
-<section class="comment-section">
-    <h2>Yorumlar (45)</h2>
+﻿
+<div class="comment-top">
+	<h4>Comments</h4>
+	<div class="media">
+		
+		<img src="images/t1.jpg" alt="" class="img-fluid" />
+		<div class="media-body">
+			<h5 class="mt-0">Joseph Goh</h5>
+			<p>
+				Lorem Ipsum convallis diam consequat magna vulputate malesuada. id dignissim sapien velit id felis ac cursus eros.
+				Cras a ornare elit.
+			</p>
 
-    <!-- Mevcut Yorumlar -->
-    <div class="comments-list">
-        
-        @foreach (var item in Model)
-        {
-            
-        
-        <div class="comment">
-            <div class="comment-header">
-                <div class="user-avatar"></div>
-                <div>
-                    <h3>@item.CommentUserName</h3>
-                    <small>@item.CommentDate</small>
-                </div>
-            </div>
-            <p>@item.CommentContent</p>
-        </div>
-        }
-        
-    </div>
-
+			<div class="media mt-3">
+				<a class="d-flex pr-3" href="#">
+					<img src="images/t2.jpg" alt="" class="img-fluid" />
+				</a>
+				<div class="media-body">
+					<h5 class="mt-0">Richard Spark</h5>
+					<p>
+						Lorem Ipsum convallis diam consequat magna vulputate malesuada. id dignissim sapien velit id felis ac cursus eros.
+						Cras a ornare elit.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
