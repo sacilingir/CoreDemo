@@ -1,7 +1,41 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//builder.Services.AddSession();
+
+builder.Services.AddMvc(config =>
+{
+	var policy = new AuthorizationPolicyBuilder()
+					.RequireAuthenticatedUser()
+					.Build();
+	config.Filters.Add(new AuthorizeFilter(policy));
+});
+//proje seviyesinde auth.
+
+builder.Services.AddMvc();
+builder.Services.AddAuthentication(
+	CookieAuthenticationDefaults.AuthenticationScheme).AddCookie( x =>
+	{
+		x.LoginPath = "/Login/Index";
+	}
+	);
+//yetkili olmadýðýn sayfaya gittiðinde hata vermek yerine bu dizine gidecek.
+
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+	options.Cookie.HttpOnly = true;
+	options.ExpireTimeSpan = TimeSpan.FromMinutes(5); //Oturum çerezinin süresini 5 dakika olarak belirler. (ExpireTimeSpan)
+
+	options.LoginPath = "/Login/Index";
+	options.SlidingExpiration = true; //Kullanýcý aktif kaldýkça oturum süresini otomatik olarak yeniler. (SlidingExpiration)
+});
 
 var app = builder.Build();
 
@@ -16,6 +50,10 @@ app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1","?code={0}");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseAuthentication();
+
+//app.UseSession();
 
 app.UseRouting();
 

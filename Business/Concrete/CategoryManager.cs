@@ -20,25 +20,9 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
-        public void CategoryAdd(Category category)
-        {
-            _categoryDal.Insert(category);
-
-        }
-
-        public void CategoryDelete(Category category)
-        {
-            _categoryDal.Delete(category);
-        }
-
-        public void CategoryUpdate(Category category)
-        {
-            _categoryDal.Update(category);
-        }
-
         public Category GetById(int id)
         {
-            return _categoryDal.GetById(id);
+            throw new NotImplementedException();
         }
 
         public List<Category> GetList()
@@ -46,9 +30,19 @@ namespace Business.Concrete
             return _categoryDal.GetListAll();
         }
 
-        List<Category> ICategoryService.GetById(int id)
+        public void TAdd(Category t)
         {
-            throw new NotImplementedException();
+            _categoryDal.Insert(t);
+        }
+
+        public void TDelete(Category t)
+        {
+            _categoryDal.Delete(t);
+        }
+
+        public void TUpdate(Category t)
+        {
+            _categoryDal.Update(t);
         }
     }
 }

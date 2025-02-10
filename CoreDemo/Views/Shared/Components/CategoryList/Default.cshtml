@@ -1,75 +1,14 @@
 ﻿@model IEnumerable<Entitiy.Concrete.Category>
-<div class="container sidebar-section">
-    <div class="sidebar-box">
-        <h3>Kategoriler</h3>
+<div class="container tech-btm text-center justify-content-center">
+    <h2 class="mb-3">Kategoriler</h2>
+    <ul class="list-group single">
         @foreach (var item in Model)
 
         {
-
-            <ul>
-                <li><a href="#">@item.CategoryName</a></li>
-            </ul>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @item.CategoryName
+                <span class="badge badge-primary badge-pill">4</span>
+            </li>
         }
-    </div>
-
-    <div class="sidebar-box">
-        <h3>Yazarın Diğer Yazıları</h3>
-        <p><strong>-</strong></p>
-        <p>-</p>
-        <a href="#" class="read-more">Devamını Oku →</a>
-    </div>
+    </ul>
 </div>
-
-<style>
-    .sidebar-section {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        margin-top: 3rem;
-    }
-
-    .sidebar-box {
-        flex: 1;
-        background: white;
-        padding: 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    }
-
-        .sidebar-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #2d3436;
-        }
-
-        .sidebar-box ul {
-            list-style: none;
-            padding: 0;
-        }
-
-            .sidebar-box ul li {
-                margin-bottom: 0.8rem;
-            }
-
-                .sidebar-box ul li a {
-                    text-decoration: none;
-                    color: #007bff;
-                    font-weight: 500;
-                }
-
-                    .sidebar-box ul li a:hover {
-                        text-decoration: underline;
-                    }
-
-    .read-more {
-        display: inline-block;
-        margin-top: 1rem;
-        color: #007bff;
-        font-weight: bold;
-        text-decoration: none;
-    }
-
-        .read-more:hover {
-            text-decoration: underline;
-        }
-</style>
