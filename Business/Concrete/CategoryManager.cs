@@ -20,7 +20,7 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
-        public Category GetById(int id)
+        public Category TGetById(int id)
         {
             throw new NotImplementedException();
         }

@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules;
 using DataAccess.Abstract;
 using Entitiy.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace Business.Concrete
     public class BlogManager : IBlogService
     {
         IBlogDal _blogDal;
+        
 
         public BlogManager(IBlogDal blogDal)
         {
@@ -25,9 +28,13 @@ namespace Business.Concrete
             return _blogDal.GetListWithCategory();
         }
 
-        public Blog GetById(int id)
+        public Blog TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _blogDal.GetById(id);
+        }
+        public List<Blog> GetListWithCategoryByWriterBm(int id)
+        {
+            return _blogDal.GetListWithCategoryByWriter(id);
         }
         public List<Blog> GetBlogById(int id)
         {
@@ -48,12 +55,12 @@ namespace Business.Concrete
 
         public void TAdd(Blog t)
         {
-            throw new NotImplementedException();
+            _blogDal.Insert(t);
         }
 
         public void TDelete(Blog t)
         {
-            throw new NotImplementedException();
+            _blogDal.Delete(t);
         }
 
         public void TUpdate(Blog t)
