@@ -29,7 +29,7 @@ namespace CoreDemo.Controllers
                 p.WriterStatus = true;
                 p.WriterAbout = " Test Deneme... ";
                 p.WriterImage = "Daha sonra eklenecek..";
-                wm.WriterAdd(p);
+                wm.TAdd(p);
                 return RedirectToAction("Index", "Blog");
             }
             else
