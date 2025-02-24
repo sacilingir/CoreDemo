@@ -33,4 +33,8 @@
     <ProjectReference Include="..\Entitiy\Entitiy.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\WriterImageFiles\" />
+  </ItemGroup>
+
 </Project>

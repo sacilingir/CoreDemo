@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using Business.ValidationRules;
+using CoreDemo.Models;
 using DataAccess.EntityFramework;
 using Entitiy.Concrete;
 using FluentValidation.Results;
@@ -67,12 +68,35 @@ namespace CoreDemo.Controllers
 			return View();
 
         }
-
-		[AllowAnonymous]
-		[HttpPost]
+        [AllowAnonymous]
+        [HttpGet]
 		public IActionResult WriterAdd()
 		{
 			return View();
+		}
+
+		[AllowAnonymous]
+		[HttpPost]
+		public IActionResult WriterAdd(AddProfileImage p)
+		{
+			Writer w = new Writer();
+			if(p.WriterImage != null)
+			{
+				var extension = Path.GetExtension(p.WriterImage.FileName); //dosyanın uzantısını tutar
+				var newimagename = Guid.NewGuid() + extension; //Guid.NewGuid(): Benzersiz bir rastgele dosya adı oluşturur
+				var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/WriterImageFiles/", newimagename); //Directory.GetCurrentDirectory() : Projenin ana dizinini döndürür (örneğin, "C:\Projects\MyWebApp").
+                                                                                                                         //Path.Combine(...): Yeni resmin tam yolunu oluşturur.
+                var stream = new FileStream(location, FileMode.Create); //FileStream: Belirtilen yolda (location) yeni bir dosya oluşturur.
+                p.WriterImage.CopyTo(stream);
+				w.WriterImage = newimagename;
+			}
+			w.WriterMail = p.WriterMail;
+			w.WriterName = p.WriterName;
+			w.WriterPassword = p.WriterPassword;
+			w.WriterStatus = p.WriterStatus;
+			w.WriterAbout = p.WriterAbout;
+			wm.TAdd(w);
+			return RedirectToAction("Index","Dashboard");
 		}
 
 
