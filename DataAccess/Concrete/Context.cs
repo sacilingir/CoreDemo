@@ -46,15 +46,19 @@ namespace DataAccess.Concrete
             .HasForeignKey(z => z.ReceiverID)
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
-      //bire cok iliski oldugu icin HasOne(bir) -WithMany(cok)
-      //HasOne da Writer olmasi gerek cunki bir yazar birden cok mesaj gonderebilir, WithMany se mesajlarla bagli.
-      //Writer icerisinde virtual ile belirtdigimiz WriterSender ve WriterReceiver aslinda Mesajlari gosteriyor.Bu yuzden adlandirmayi MessageSender ve MessageReceiver yaparsak karistirmadan ilerletebiliriz. 
-       //Ayni seyi Mesajlarda da yapmaliyiz, Mesajlarda Writer dan turetdigimizleri SenderUser ve SenderReceiver aslinda Writeri gosteriyor bu yuzden adlandirmada SenderWriter ve ReceiverWriter yaparsak,
-        //HasOne - WithMany iliskisini kurarken HasOne kisminda Writer olanlari (yani WriterSender ve WriterReceiver) yazicaz, WithMany deyse Message olanlari(yani MessageSender ve MessageReceiver) yazicaz.
-         //Bide HasForeignKey ler vardi, Bunlarinda Sonlarina ID yazmamiz yeterli olur, SenderID ve ReceiverID.Boylece HasOne - Bir, WithMany-Cok, HasForeignKey- ID ile akilda kalir
+            //bire cok iliski oldugu icin HasOne(bir) -WithMany(cok)
+            //HasOne da Writer olmasi gerek cunki bir yazar birden cok mesaj gonderebilir, WithMany se mesajlarla bagli.
+            //Writer icerisinde virtual ile belirtdigimiz WriterSender ve WriterReceiver aslinda Mesajlari gosteriyor.Bu yuzden adlandirmayi MessageSender ve MessageReceiver yaparsak karistirmadan ilerletebiliriz. 
+            //Ayni seyi Mesajlarda da yapmaliyiz, Mesajlarda Writer dan turetdigimizleri SenderUser ve SenderReceiver aslinda Writeri gosteriyor bu yuzden adlandirmada SenderWriter ve ReceiverWriter yaparsak,
+            //HasOne - WithMany iliskisini kurarken HasOne kisminda Writer olanlari (yani WriterSender ve WriterReceiver) yazicaz, WithMany deyse Message olanlari(yani MessageSender ve MessageReceiver) yazicaz.
+            //Bide HasForeignKey ler vardi, Bunlarinda Sonlarina ID yazmamiz yeterli olur, SenderID ve ReceiverID.Boylece HasOne - Bir, WithMany-Cok, HasForeignKey- ID ile akilda kalir
 
             // HomeMatches => WriterSender
             //AwayMatches => WriterReceiver
+
+
+            modelBuilder.Entity<Blog>()
+        .ToTable("Blogs", tb => tb.HasTrigger("AddBlogInRaytingTable"));
 
         }
 
