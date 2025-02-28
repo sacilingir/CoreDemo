@@ -4,6 +4,7 @@ using DataAccess.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20250224123330_mig_add_message_table")]
+    partial class mig_add_message_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -219,37 +222,6 @@ namespace DataAccess.Migrations
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("Entitiy.Concrete.Match", b =>
-                {
-                    b.Property<int>("MatchID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchID"));
-
-                    b.Property<int?>("GuestTeamID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("HomeTeamID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("MatchDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Stadium")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("MatchID");
-
-                    b.HasIndex("GuestTeamID");
-
-                    b.HasIndex("HomeTeamID");
-
-                    b.ToTable("Matches");
-                });
-
             modelBuilder.Entity("Entitiy.Concrete.Message", b =>
                 {
                     b.Property<int>("MessageID")
@@ -283,43 +255,6 @@ namespace DataAccess.Migrations
                     b.HasKey("MessageID");
 
                     b.ToTable("Messages");
-                });
-
-            modelBuilder.Entity("Entitiy.Concrete.Message2", b =>
-                {
-                    b.Property<int>("MessageID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageID"));
-
-                    b.Property<DateTime>("MessageDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("MessageDetails")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("MessageStatus")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("ReceiverID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SenderID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Subject")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("MessageID");
-
-                    b.HasIndex("ReceiverID");
-
-                    b.HasIndex("SenderID");
-
-                    b.ToTable("Message2s");
                 });
 
             modelBuilder.Entity("Entitiy.Concrete.NewsLetter", b =>
@@ -375,23 +310,6 @@ namespace DataAccess.Migrations
                     b.HasKey("NotificationID");
 
                     b.ToTable("Notifications");
-                });
-
-            modelBuilder.Entity("Entitiy.Concrete.Team", b =>
-                {
-                    b.Property<int>("TeamId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeamId"));
-
-                    b.Property<string>("TeamName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TeamId");
-
-                    b.ToTable("Teams");
                 });
 
             modelBuilder.Entity("Entitiy.Concrete.Writer", b =>
@@ -460,36 +378,6 @@ namespace DataAccess.Migrations
                     b.Navigation("Blog");
                 });
 
-            modelBuilder.Entity("Entitiy.Concrete.Match", b =>
-                {
-                    b.HasOne("Entitiy.Concrete.Team", "GuestTeam")
-                        .WithMany("AwayMatches")
-                        .HasForeignKey("GuestTeamID");
-
-                    b.HasOne("Entitiy.Concrete.Team", "HomeTeam")
-                        .WithMany("HomeMatches")
-                        .HasForeignKey("HomeTeamID");
-
-                    b.Navigation("GuestTeam");
-
-                    b.Navigation("HomeTeam");
-                });
-
-            modelBuilder.Entity("Entitiy.Concrete.Message2", b =>
-                {
-                    b.HasOne("Entitiy.Concrete.Writer", "ReceiverUser")
-                        .WithMany("WriterReceiver")
-                        .HasForeignKey("ReceiverID");
-
-                    b.HasOne("Entitiy.Concrete.Writer", "SenderUser")
-                        .WithMany("WriterSender")
-                        .HasForeignKey("SenderID");
-
-                    b.Navigation("ReceiverUser");
-
-                    b.Navigation("SenderUser");
-                });
-
             modelBuilder.Entity("Entitiy.Concrete.Blog", b =>
                 {
                     b.Navigation("Comments");
@@ -500,20 +388,9 @@ namespace DataAccess.Migrations
                     b.Navigation("Blogs");
                 });
 
-            modelBuilder.Entity("Entitiy.Concrete.Team", b =>
-                {
-                    b.Navigation("AwayMatches");
-
-                    b.Navigation("HomeMatches");
-                });
-
             modelBuilder.Entity("Entitiy.Concrete.Writer", b =>
                 {
                     b.Navigation("Blogs");
-
-                    b.Navigation("WriterReceiver");
-
-                    b.Navigation("WriterSender");
                 });
 #pragma warning restore 612, 618
         }
