@@ -1,0 +1,29 @@
+﻿@model Entitiy.Concrete.Category
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+<h1>Yeni Kategori Girişi</h1>
+
+@using (Html.BeginRouteForm(routeName:"Admin",routeValues:new {Action = "AddCategory",Controller="Category",area="Admin"},method:FormMethod.Post))
+{
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("Kategori Hakkında")
+    @Html.TextAreaFor(x => x.CategoryDescription, 4, 10, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryDescription, "", new { @class = "text-danger" })
+    <br />
+    <br />
+  
+    <br />
+    <br />
+    <button class="btn btn-info">Verileri Kaydet</button>
+}

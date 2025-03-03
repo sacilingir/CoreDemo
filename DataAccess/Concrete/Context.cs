@@ -58,7 +58,7 @@ namespace DataAccess.Concrete
 
 
             modelBuilder.Entity<Blog>()
-        .ToTable("Blogs", tb => tb.HasTrigger("AddBlogInRaytingTable"));
+        .ToTable("Blogs", tb => tb.HasTrigger("AddBlogInRaytingTable")); //triggerı onaylıyor.
 
         }
 
